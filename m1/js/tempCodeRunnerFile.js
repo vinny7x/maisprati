@@ -1,9 +1,10 @@
-const prompt = require('prompt-sync')();
-
-let soma = 0;
-let n;
-do {
-    n = Number(prompt('Insira um número: '));
-    soma+=n
-} while (n > 0);
-console.log("Resultado:" + soma)
+let coisas = [
+    [1, 2],
+    ["a", "b"],
+    ["manga", "pêra"]
+]
+for(let i = 0; i < coisas.length; i++){
+    for(let j = 0; j< coisas[i].length; j++){
+        console.log(coisas[i][j])
+    }
+}
