@@ -1,22 +1,16 @@
-let arr = [10, 20, 30, 40, 50]
-
-let soma = 0
-let maior = arr[0]
-let menor = arr[0]
-
-for(let i = 0; i<arr.length; i++){
-    soma += arr[i]
-    if(arr[i] > maior){
-        maior = arr[i]
-    }
-    if(arr[i] < menor){
-        menor = arr[i]
+// objetos
+let serie = {
+    nome: "Two and a half man",
+    genero: "Comédia",
+    temporadas: 12,
+    status: "Finalizada",
+    classificacao: 16,
+    episodios: {
+        temp1: 10,
+        temp2: 30
+    },
+    mostrarCaracteristicas: function(){
+        return `Série: ${this.nome} | Classificação: ${this.classificacao}`
     }
 }
-
-let media = soma / arr.length
-
-console.log("Soma:", soma)
-console.log("Média:", media)
-console.log("Maior valor:", maior)
-console.log("Menor valor:", menor)
+console.log(serie.mostrarCaracteristicas())
