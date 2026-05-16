@@ -1,16 +1,21 @@
-// objetos
-let serie = {
-    nome: "Two and a half man",
-    genero: "Comédia",
-    temporadas: 12,
-    status: "Finalizada",
-    classificacao: 16,
-    episodios: {
-        temp1: 10,
-        temp2: 30
-    },
-    mostrarCaracteristicas: function(){
-        return `Série: ${this.nome} | Classificação: ${this.classificacao}`
+const turma = [
+    { nome: 'Alice', nota: 9.0 },
+    { nome: 'Bruno', nota: 5.5 },
+    { nome: 'Carla', nota: 7.0 },
+    { nome: 'Daniel', nota: 3.8 },
+    { nome: 'Elisa', nota: 8.2 },
+];
+let aprovados = []
+let reprovados = []
+let soma = 0
+
+for (aluno of turma) {
+    soma += aluno.nota
+    if(aluno.nota >= 6) {
+        aprovados.push(aluno.nome)
+    } else {
+        reprovados.push(aluno.nome)
     }
 }
-console.log(serie.mostrarCaracteristicas())
+let media = soma / turma.length
+console.log("Aprovados: "+aprovados.join(', ')+"\nReprovados: "+reprovados.join(", ")+"\nMédia: "+ media)
