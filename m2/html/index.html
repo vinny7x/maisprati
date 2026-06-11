@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mês dos namorados</title>
+    <style>
+        img {
+            width: 100%;
+        }
+        table, tr, td {
+            border: 1px solid black;
+        }
+        .produto {
+        width: 100px;
+        padding: 4px;
+    }
+       input {
+        border-radius: 4px;
+        display: block;
+        border: none;
+        padding: 6px;
+       }
+       label{
+        display: block;
+        margin: 4px;
+       }
+       #form-login {
+        color: white;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+       #title{
+        color: white;
+        text-align: center;
+       }
+       #login-div{
+        background-color: rgb(53, 143, 253);
+        border-radius: 4px;
+        padding: 20px;
+        margin: 20px
+       }
+       #login-button {
+        border: none;
+        margin: 8px;
+        margin-top: 20px;
+        padding: 8px;
+        width: auto;
+        cursor: pointer;
+        color: orange;
+        border-radius: 6px;
+        width: 200px;
+       }
+    </style>
+</head>
+<body>
+    <h1>Olha que site bunito</h1>
+    <p>Olá, mundo! <a href="https://google.com">oi</a></p>
+    
+    <table>
+        <tr>
+        <th>Título</th>
+        <th>vídeo</th>
+        </tr>
+        <td>Conteúdo titulo</td>
+        <td>Conteúdo vídeo</td>
+        </tr>
+    </table>
+
+
+    <table>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+        </tr>
+        <tr>
+            <td>Notebook</td>
+            <td>R$ 5.000,00</td>
+        </tr>
+        <tr>
+            <td>fone de ouvido</td>
+            <td>R$ 800,00</td>
+        </tr>
+        <tr>
+            <td>Caixa de som JBL</td>
+            <td>R$ 1.000,00</td>
+        </tr>
+    </table>
+<img src="https://assets.b9.com.br/wp-content/uploads/2025/05/google-novo-logo-g.jpg" alt="Logo da Google">
+
+<table>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+        </tr>
+        <tr>
+            <td><img class="produto" src="https://i.zst.com.br/thumbs/12/3f/2d/-1311845915.jpg" alt="Notebook"></td>
+            <td>R$ 5.000,00</td>
+        </tr>
+        <tr>
+            <td><img class="produto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_uGx8vf_zGTDwIZXeGvNTvKbMGK82HNDiJg&s" alt="Fone de ouvido"></td>
+            <td>R$ 800,00</td>
+        </tr>
+        <tr>
+            <td><img class="produto" src="https://images.tcdn.com.br/img/img_prod/993382/jbl_party_box_110_caixa_de_som_portatil_bass_boost_bluetooth_led_613_1_0cdcca337366bf2e7031c9b3778423e6.jpg" alt="Caixa de som JBL"></td>
+            <td>R$ 1.000,00</td>
+        </tr>
+    </table>
+
+
+<div id="login-div">
+
+    <h2 id="title">+PraTi login</h2>
+    <form id="form-login">
+        
+        <label>E-mail</label>
+        <input type="email" required placeholder="Digite seu nome">
+        <label>Senha</label>
+        <input type="password" required placeholder="Insira sua senha">
+        <button type="submit" id="login-button">Entrar</button>
+    </form>
+</div>
+
+
+</body>
+</html>
