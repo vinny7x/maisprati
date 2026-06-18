@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamento</title>
+
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        div {
+            border: 1px solid red;
+            width: 200px;
+            height: 100px;
+        }
+
+        div.estatico {
+            border: 1px solid black;
+            background-color: lightgray;
+        }
+
+        div.relative {
+            position: relative;
+            top: 20px;
+            left: 30px;
+            background-color: lightblue;
+        }
+
+        div.container {
+            position: relative
+        }
+
+        div.absoluto {
+            position: absolute;
+            top: 50px;
+            right: 5px;
+            left: 70px;
+            background-color: orange;
+        }
+
+        div.fixa {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        div.sticky {
+            position: sticky;
+            top: 50px;
+            left: 0;
+            margin: 0;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="estatico">
+        <h1>Estático</h1>
+    </div>
+
+    <div class="relative">
+        <h1>Relative</h1>
+    </div>
+
+    <div class="container">
+        <div class="absoluto">Absoluto</div>
+    </div>
+
+    <div class="fixa">
+        <h1>Fixa</h1>
+    </div>
+
+    <div class="sticky">
+        <h1>Sticky</h1>
+    </div>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet eaque dolores repellat nam explicabo beatae voluptate, nemo odio nulla minus aliquam sint deleniti quae. Sit repudiandae accusamus consequatur quas architecto!</p>
+</body>
+</html>

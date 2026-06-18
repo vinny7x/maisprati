@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        .demo-section h2.content {
+            border: 3px solid red;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin-left: 100px;
+        }
+        .product-card{
+            border: 2px solid gray;
+            width: 200px;
+            padding: 20px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .product-card img{
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .product-card h3.product-name {
+            font-weight: bolder;
+            color: gray;
+        }
+        .product-card button {
+            align-self: center;
+        }
+        .product-card p.product-price {
+            color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <section class="demo-section">
+        <h2 class="content">Conteudo</h2>
+        <h2 class="units">Unidades de medida</h2>
+    </section>
+    <section>
+        <div class="product-card"><img src="https://tfdfjz.vteximg.com.br/arquivos/ids/360076/tenis-esportivo-adidas-masculino-response-super-ji4320-azul-ji4320-1-.jpg?v=638718839541970000" alt="">
+        <h3 class="product-name">Tênis</h3>
+        <p class="product-price">R$ 1.000</p>
+        <button>Comprar</button>
+        </div>
+    </section>
+</body>
+</html>
