@@ -1,29 +1,44 @@
-let arr = [
-    [8, 7, 9, 10], // aluno 1
-    [6, 5, 8, 7],  // aluno 2
-    [9, 10, 8, 9]  // aluno 3
-];
-
-let mediaGeral = 0;
-let somaGeral = 0;
-let melhorMedia = 0;
-let melhorAluno = 0;
-
-for (let aluno = 0; aluno < 3; aluno++) {
-
-    let somaAluno = 0;
-    for (let nota = 0; nota < 4; nota++) {
-        somaGeral += arr[aluno][nota];
-        somaAluno += arr[aluno][nota];
+const prompt = require("prompt-sync")();
+const contatos = [
+    {
+        nome: "João Silva",
+        telefone: "(75) 99911-1111",
+        email: "joao@email.com"
+    },
+    {
+        nome: "Maria Souza",
+        telefone: "(75) 99922-2222",
+        email: "maria@email.com"
+    },
+    {
+        nome: "Pedro Santos",
+        telefone: "(75) 99933-3333",
+        email: "pedro@email.com"
+    },
+    {
+        nome: "Ana Oliveira",
+        telefone: "(75) 99944-4444",
+        email: "ana@email.com"
+    },
+    {
+        nome: "Lucas Costa",
+        telefone: "(75) 99955-5555",
+        email: "lucas@email.com"
     }
-    let mediaAluno = somaAluno / 4;
-    console.log(`Aluno ${aluno + 1}: Soma das notas: ${somaAluno}; Média: ${mediaAluno}`);
-
-    if (mediaAluno > melhorMedia) {
-        melhorAluno = aluno;
-        melhorMedia = mediaAluno;
+];
+contatos.forEach(contato => {
+    console.log(`Nome: ${contato.nome} | Telefone: ${contato.telefone} | Email: ${contato.email}`);
+});
+const nome = prompt("Insira um nome para buscar? ").toLowerCase();
+let usuario = null;
+for (const contato of contatos) {
+    if (contato.nome.toLowerCase() === nome) {
+        usuario = contato;
+        break;
     }
 }
-mediaGeral = somaGeral / 12;
-console.log(`Média geral da turma: ${mediaGeral.toFixed()}`);
-console.log(`Aluno com o melhor desempenho: ${melhorAluno + 1} (Média: ${melhorMedia})`);
+if (usuario) {
+    console.log(`Nome: ${usuario.nome} | Telefone: ${usuario.telefone} | Email: ${usuario.email}`);
+} else {
+    console.log("Contato não encontrado");
+}
