@@ -1,44 +1,45 @@
-const prompt = require("prompt-sync")();
-const contatos = [
+const musicas = [
     {
-        nome: "João Silva",
-        telefone: "(75) 99911-1111",
-        email: "joao@email.com"
+        titulo: "Evidências",
+        artista: "Chitãozinho & Xororó",
+        duracao: 278
     },
     {
-        nome: "Maria Souza",
-        telefone: "(75) 99922-2222",
-        email: "maria@email.com"
+        titulo: "Anna Júlia",
+        artista: "Los Hermanos",
+        duracao: 215
     },
     {
-        nome: "Pedro Santos",
-        telefone: "(75) 99933-3333",
-        email: "pedro@email.com"
+        titulo: "Tempo Perdido",
+        artista: "Legião Urbana",
+        duracao: 307
     },
     {
-        nome: "Ana Oliveira",
-        telefone: "(75) 99944-4444",
-        email: "ana@email.com"
+        titulo: "Metamorfose Ambulante",
+        artista: "Raul Seixas",
+        duracao: 230
     },
     {
-        nome: "Lucas Costa",
-        telefone: "(75) 99955-5555",
-        email: "lucas@email.com"
+        titulo: "Garota de Ipanema",
+        artista: "Tom Jobim",
+        duracao: 196
+    },
+    {
+        titulo: "Anna Júlia",
+        artista: "Los Hermanos",
+        duracao: 215
     }
 ];
-contatos.forEach(contato => {
-    console.log(`Nome: ${contato.nome} | Telefone: ${contato.telefone} | Email: ${contato.email}`);
+let duracaoTotal = 0;
+for (const musica of musicas) {
+    const min = Math.floor(musica.duracao / 60);
+    const seg = musica.duracao % 60;
+
+    console.log(`${musica.artista} - ${musica.titulo} (${min}:${seg.toString().padStart(2, "0")})`);
+}
+musicas.forEach(m => {
+    duracaoTotal += m.duracao;
 });
-const nome = prompt("Insira um nome para buscar? ").toLowerCase();
-let usuario = null;
-for (const contato of contatos) {
-    if (contato.nome.toLowerCase() === nome) {
-        usuario = contato;
-        break;
-    }
-}
-if (usuario) {
-    console.log(`Nome: ${usuario.nome} | Telefone: ${usuario.telefone} | Email: ${usuario.email}`);
-} else {
-    console.log("Contato não encontrado");
-}
+const minutosTotais = Math.floor(duracaoTotal / 60);
+const segundosTotais = duracaoTotal % 60;
+console.log(`\n Duração total da playlist: ${minutosTotais}:${segundosTotais.toString().padStart(2, "0")}`);

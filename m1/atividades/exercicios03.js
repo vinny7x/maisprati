@@ -11,7 +11,7 @@ const produto = {
     quantidadeEstoque: 20
 };
 produto.desconto = 0.1 * 100;
-precoFinal = produto.preco - (produto.preco * (produto.desconto / 100));
+const precoFinal = produto.preco - (produto.preco * (produto.desconto / 100));
 for (const key in produto) {
     console.log(`${key}: ${produto[key]}`);
 }
@@ -73,8 +73,8 @@ for (const key in funcionario) {
 }
 const { anosExperiencia, salario } = funcionario;
 let percentual, bonus;
-if (anosExperiencia < 0 || !anosExperiencia) {
-    return console.error("Anos de experiência inválido");
+if (anosExperiencia < 0) {
+    console.error("Anos de experiência inválido");
 } else if (anosExperiencia <= 2) {
     percentual = 0.05;
 } else if (anosExperiencia >= 3 && anosExperiencia <= 5) {
@@ -140,7 +140,7 @@ const orcamento = {
 let saldoGeral = 0;
 let gastos = 0;
 
-for (categoria in orcamento) {
+for (const categoria in orcamento) {
     const data = orcamento[categoria];
     if (data.gasto <= data.planejado) {
         console.log(`${categoria}: dentro do orçamento!`);
@@ -196,7 +196,7 @@ for (const musica of musicas) {
     const min = Math.floor(musica.duracao / 60);
     const seg = musica.duracao % 60;
 
-    console.log(`${musica.titulo} - ${musica.artista} (${min}:${seg.toString().padStart(2, "0")})`);
+    console.log(`${musica.artista} - ${musica.titulo} (${min}:${seg.toString().padStart(2, "0")})`);
 }
 musicas.forEach(m => {
     duracaoTotal += m.duracao;
@@ -214,7 +214,7 @@ let notaAprovados = 0;
 let notaReprovados = 0;
 
 let mediaAprovados = 0;
-let mediaRepovados = 0;
+let mediaReprovados = 0;
 
 const alunos = [
     { nome: "Duda", nota: 7 },
@@ -235,17 +235,17 @@ for (const aluno of alunos) {
 }
 
 alunos.forEach(aluno => {
-    if (aluno.nota > 5) {
+    if (aluno.nota >= 7) {
         notaAprovados += aluno.nota;
     } else if (aluno.nota < 5) {
         notaReprovados += aluno.nota;
     }
 });
-mediaAprovados = notaAprovados / alunos.length;
-mediaRepovados = notaReprovados / alunos.length;
+mediaAprovados = notaAprovados / alunos.filter(a => a.nota >= 7).length;
+mediaReprovados = notaReprovados / alunos.filter(a => a.nota < 5).length;
 
-console.log(`Média dos alunos aporvados: ${mediaAprovados}`);
-console.log(`Média dos alunos reprovados: ${mediaRepovados.toFixed(2)}`);
+console.log(`Média dos alunos aprovados: ${mediaAprovados}`);
+console.log(`Média dos alunos reprovados: ${mediaReprovados.toFixed(2)}`);
 /**
  * Crie um array de objetos representando produtos com nome, preço e quantidade.
 Use forEach para calcular o valor total em estoque de cada produto (preço ×
