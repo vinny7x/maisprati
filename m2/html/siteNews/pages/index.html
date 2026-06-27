@@ -5,65 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarim Diário</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/components/site-header.js"></script>
+    <script src="../js/components/site-footer.js"></script>
+    <script src="../js/components/news-card.js"></script>
 </head>
 <body>
-    <header class="cabecalho">
-        <div class="logo">
-            Clarim Diário
-        </div>
-        <nav class="navegacao">
-            <a href="#">Política</a>
-            <a href="#">Economia</a>
-            <a href="#">Esportes</a>
-            <a href="#">Homem-Aranha</a>
-        </nav>
-    </header>
-    <main class="principal">
-        <article class="destaque">
-            <span class="categoria">Homem-Aranha</span>
-            <h1>
-                Homem-Aranha é visto de máscara!        
-            </h1>
-            <p class="resumo">
-                Na ponte Manhattan Homem-Aranha é visto batendo em um senhor de 6 braços.
-            </p>
-            <div class="meta">
-                <span>Por J. Jonah Jameson</span>
-                <span>17 de Junho de 2026</span>
-            </div>
-        </article>
+    
+    <!--header-->
+    <site-header></site-header>
+    <div class="conteudo">
 
-        <section class="grade-noticias">
-            <article class="cartao">
-                <span class="categoria">Economia</span>
-                <h2>Dólar despenca e volta a ser R$ 2</h2>
-                <p>Mercado reage à eleição de Wilson Fisk como prefeito de Nova York, declarando apoio total ao Presidente Capitão Pátria.</p>
+        <main class="principal">
+            <article class="cartao card--destaque">
+                <span class="categoria">Homem-Aranha</span>
+                <h1 class="card__titulo">
+                    Homem-Aranha é visto de máscara!        
+                </h1>
+                <p class="card__resumo">
+                    Na ponte Manhattan Homem-Aranha é visto batendo em um senhor de 6 braços.
+                </p>
             </article>
+            
+            <section class="grade-noticias">
+                <news-card
+                categoria="Economia"
+                titulo="Dólar recua e a bolsa sobe"
+                resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst."
+                />
 
-            <article class="cartao">
-                <span class="categoria">Política</span>
-                <h2>Luz-estrelistas são vistos acenando para as estrelas</h2>
-                <p>Em manifestação as declarações de Profundo, que disse que os peixes estão morrendo afogados.</p>
-            </article>
+                <news-card
+                categoria="Esportes"
+                titulo="Dólar recua e a bolsa sobe"
+                resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst."
+                />
 
-            <article class="cartao">
-                <span class="categoria">Esportes</span>
-                <h2>Time do New York Cats vence estadual de Nova York</h2>
-                <p>Flash Thompson levanta o troféu e beija sua amada Mary Jane. Fotógrafo Peter Parker trás todas as imagens e cobertura.</p>
-            </article>
+                <news-card
+                categoria="Cultura"
+                titulo="Dólar recua e a bolsa sobe"
+                resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst."
+                />
         </section>
     </main>
     <aside class="menu-lateral">
-        <h3>Mais lidas</h3>
-        <ol>
-            <li>O que muda agora que todos sabem que Billy Butcher morreu?</li>
-            <li>Batman é visto com a Catwoman em telhado</li>
-            <li>Estreando no mundo da moda, Harley Queen destrói o palco</li>
-            <li>Goku revive pela 6 vez</li>
-        </ol>
+        <div class="caixa">
+            
+            <h3>Mais lidas</h3>
+            <ol>
+                <li>O que muda agora que todos sabem que Billy Butcher morreu?</li>
+                <li>Batman é visto com a Catwoman em telhado</li>
+                <li>Estreando no mundo da moda, Harley Queen destrói o palco</li>
+                <li>Goku revive pela 6 vez</li>
+            </ol>
+        </div>
     </aside>
-    <footer class="rodape">
-        <p>&copy; 2026 Clarim Diário - Desenvolvido por Max Steel</p>
-    </footer>
+    <site-footer></site-footer>
+</div>
 </body>
 </html>

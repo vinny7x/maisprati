@@ -5,24 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reforma é aporvada - Clarim Diário</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/components/site-header.js"></script>
+    <script src="../js/components/site-footer.js"></script>
+    <script src="../js/components/news-card.js"></script>
 </head>
 <body>
-    <header class="cabecalho">
-        <a class="logo" href="index.html">Clarim Diário</a>
-        <nav class="navegacao">
-            <a href="#">Política</a>
-            <a href="#">Economina</a>
-            <a href="#">Esportes</a>
-            <a href="#">Homem-Aranha</a>
-        </nav>
-    </header>
-    <navbar class="trilha">
-        <a href="index.html">Início</a>
-        <span>/</span>
-        <a href="#">Política</a>
-        <span>/</span>
-        <span class="atual">Batman lança o Batpapo</span>
-    </navbar>
+   <site-header></site-header>
+       <nav class="trilha">
+      <a href="index.html">Início</a>
+      <span>/</span>
+      <a href="#">Política</a>
+      <span>/</span>
+      <span class="atual">Batman Lança o BatePapo</span>
+    </nav>
+
     <div class="conteudo">
         <article class="materia">
             <span class="categoria">Política</span>
@@ -37,8 +33,8 @@
                     <span class="data">18 de junho de 2026 - 8 min de leitura</span>
                 </div>
                 <div class="compartilhar">
-                    <button>Compartilhar</button>
-                    <button>Salvar</button>
+                    <button class="btn btn--primary">Compartilhar</button>
+                    <button class="btn btn--primary">Salvar</button>
                 </div>
             </div>
             <div class="texto">
@@ -50,10 +46,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium rerum, illum omnis magnam numquam, quibusdam quae iusto impedit harum libero tempora? Deserunt autem asperiores accusamus cupiditate assumenda, officiis cumque illum?</p>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis blanditiis, modi vitae illum deserunt error debitis, cumque, natus dolorum quidem quia dicta sequi dignissimos earum id. Deleniti adipisci ipsum fuga!</p>
                  <div class="tags">
-            <a href="#">Heróis</a>
-            <a href="#">Justiça</a>
-            <a href="#">Vingança</a>
-            <a href="#">Cachaça</a>
+            <a class="tag" href="#">Heróis</a>
+            <a class="tag" href="#">Justiça</a>
+            <a class="tag" href="#">Vingança</a>
+            <a class="tag" href="#">Cachaça</a>
         </div>
         <figure class="imagem-destaque">
             <img src="https://placehold.co/600x400/EEE/31343C" alt="Homens fugindo fantasiados">
@@ -68,7 +64,7 @@
                 <ol>
                     <li>Robin rouba novamente o BatCarro</li>
                     <li>Peter Parker é o novo fotógrafo do Clarim</li>
-                    <li>IA substituiprogramadores pela segunda vez essa semana</li>
+                    <li>IA substitui programadores pela segunda vez essa semana</li>
                     <li>Chuva caí molhada mais uma vex em Não-me-toque</li>
                 </ol>
             </div>
@@ -76,48 +72,20 @@
                 <h3>Receba as notícias</h3>
                 <p>Assine nosso boletim diário.</p>
                 <input type="email" placeholder="seu@email.com">
-                <button>Assinar</button>
+                <button class="btn">Assinar</button>
             </div>
         </aside>
     </div>
     <section class="relacionados">
          <h2>Leia também</h2>
-        <div class="grade">
-            <article class="cartao">
-                <span class="categoria">Economia</span>
-                <h3>Dólar recua e a bolsa fecha em alta</h3>
-            </article>
-
-            <article class="cartao">
-                <span class="categoria">Cultura</span>
-                <h3>Churrasco do RS é eleito o melhor do país</h3>
-            </article>
-
-            <article class="cartao">
-                <span class="categoria">Esportes</span>
-                <h3>Brasil é Hexacampeão</h3>
-            </article>
-        </div>
-    </section>
-    <footer class="rodape">
-        <div class="coluna">
-            <h4>Clarim Diário</h4>
-            <p>Alra credibilidade, Dirigo J. Jonah Jameson</p>
-        </div>
-        <div class="coluna">
-            <h4>Editoriais</h4>
-            <a href="#">Política</a>
-            <a href="#">Cultura</a>
-            <a href="#">Esportes</a>
-            <a href="#">Homem-Aranha</a>
-        </div>
-        <div class="coluna">
-            <h4>Institucional</h4>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Privacidade</a>
-            <a href="#">Quem Somos</a>
-            <a href="#">Contato</a>
-        </div>
-    </footer>
+         <div class="grade">
+             <news-card categoria="Economia" titulo="Dólar recua e a bolsa sobe" resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst." />
+             
+             <news-card categoria="Economia" titulo="Dólar recua e a bolsa sobe" resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst." />
+             
+             <news-card categoria="Economia" titulo="Dólar recua e a bolsa sobe" resumo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula semper arcu, vel consequat mi cursus eget. In hac habitasse platea dictumst." />
+            </div>
+            </section>
+    <site-footer></site-footer>
 </body>
 </html>
