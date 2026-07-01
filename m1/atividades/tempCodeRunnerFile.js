@@ -1,45 +1,72 @@
-const musicas = [
-    {
-        titulo: "Evidências",
-        artista: "Chitãozinho & Xororó",
-        duracao: 278
-    },
-    {
-        titulo: "Anna Júlia",
-        artista: "Los Hermanos",
-        duracao: 215
-    },
-    {
-        titulo: "Tempo Perdido",
-        artista: "Legião Urbana",
-        duracao: 307
-    },
-    {
-        titulo: "Metamorfose Ambulante",
-        artista: "Raul Seixas",
-        duracao: 230
-    },
-    {
-        titulo: "Garota de Ipanema",
-        artista: "Tom Jobim",
-        duracao: 196
-    },
-    {
-        titulo: "Anna Júlia",
-        artista: "Los Hermanos",
-        duracao: 215
-    }
-];
-let duracaoTotal = 0;
-for (const musica of musicas) {
-    const min = Math.floor(musica.duracao / 60);
-    const seg = musica.duracao % 60;
+let inicio = null;
 
-    console.log(`${musica.artista} - ${musica.titulo} (${min}:${seg.toString().padStart(2, "0")})`);
+function adicionar(tarefa) {
+    let novoNo = { valor: tarefa, proximo: null };
+
+    if (inicio === null) {
+        inicio = novoNo;
+    } else {
+        let atual = inicio;
+
+        while (atual.proximo !== null) {
+            atual = atual.proximo;
+        }
+        atual.proximo = novoNo;
+    }
+    console.log(`Tarefa "${tarefa}" adicionada`);
 }
-musicas.forEach(m => {
-    duracaoTotal += m.duracao;
-});
-const minutosTotais = Math.floor(duracaoTotal / 60);
-const segundosTotais = duracaoTotal % 60;
-console.log(`\n Duração total da playlist: ${minutosTotais}:${segundosTotais.toString().padStart(2, "0")}`);
+
+function remover(tarefa) {
+
+    if (inicio === null) {
+        console.log("Lista vazia. Não foi possível remover.");
+        return;
+    }
+    if (inicio.valor === tarefa) {
+        inicio = inicio.proximo;
+        console.log(`Tarefa "${tarefa}" removida`);
+        return;
+    }
+    let anterior = inicio;
+    let atual = inicio.proximo;
+
+    while (atual !== null) {
+        if (atual.valor === tarefa) {
+            anterior.proximo = atual.proximo;
+            console.log(`Tarefa "${tarefa}" removida`);
+            return;
+        }
+        anterior = atual;
+        atual = atual.proximo;
+    }
+    console.log(`Tarefa "${tarefa}" não encontrada`);
+}
+function exibir() {
+    if (inicio === null) {
+        console.log("Lista vazia.");
+        return;
+    }
+    let atual = inicio;
+    let saida = "";
+
+    while (atual !== null) {
+        saida += atual.valor;
+        if (atual.proximo !== null) {
+            saida += "-> ";
+        }
+        atual = atual.proximo;
+    }
+    console.log(`Lista: ${saida} -> null\n`)
+}
+
+console.log("===== Adicionando tarefas =====")
+adicionar("Estudar 1")
+adicionar("Estudar 2")
+adicionar("Estudar 3")
+adicionar("Estudar 4")
+
+exibir()
+
+console.log("===== Removendo uma tarefa =====")
+remover("Estudar 3")
+exibir()

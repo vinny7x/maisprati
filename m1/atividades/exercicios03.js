@@ -327,6 +327,43 @@ clínica. Crie as funções chegarPaciente(nome) (enqueue), chamarProximo()
 (dequeue) e exibirFila(). Simule a chegada de 5 pacientes e o atendimento de 3,
 exibindo o estado da fila a cada operação.
  */
+let fila = [];
+function chegarPaciente(nome) {
+    fila.push(nome);
+    console.log(`Paciente "${nome}" chegou e entrou na fila`);
+
+    exibirFila();
+}
+
+function chamarProximo() {
+    if (fila.length === 0) {
+        console.log(`A fila está vazia. Não há pacientes para atender.`);
+        return;
+    }
+    let atendido = fila.shift();
+    console.log(`Atendemos o paciente "${atendido}"`);
+
+    exibirFila();
+}
+function exibirFila() {
+    if (fila.length === 0) {
+        console.log(`A fila está vazia.`);
+        return;
+    }
+    console.log(`Fila atual: ${fila.join(", ")}\n`);
+}
+
+console.log("===== Chegada dos pacientes =====");
+chegarPaciente("Luiza");
+chegarPaciente("Jeferson");
+chegarPaciente("Pedro");
+chegarPaciente("Ana");
+chegarPaciente("Maria");
+
+console.log("===== Início dos atendimentos ====");
+chamarProximo();
+chamarProximo();
+chamarProximo();
 
 /**
  * Implemente uma lista ligada simples usando nós ({ valor, proximo }). Crie as
@@ -334,7 +371,78 @@ funções adicionar(tarefa), remover(tarefa) e exibir() que percorre todos os n�
 Simule um gerenciador de tarefas: adicione 4 tarefas, remova uma pelo nome e
 exiba a lista antes e depois.
  */
+let inicio = null;
 
+function adicionar(tarefa) {
+    let novoNo = { valor: tarefa, proximo: null };
+
+    if (inicio === null) {
+        inicio = novoNo;
+    } else {
+        let atual = inicio;
+
+        while (atual.proximo !== null) {
+            atual = atual.proximo;
+        }
+        atual.proximo = novoNo;
+    }
+    console.log(`Tarefa "${tarefa}" adicionada`);
+}
+
+function remover(tarefa) {
+
+    if (inicio === null) {
+        console.log("Lista vazia. Não foi possível remover.");
+        return;
+    }
+    if (inicio.valor === tarefa) {
+        inicio = inicio.proximo;
+        console.log(`Tarefa "${tarefa}" removida`);
+        return;
+    }
+    let anterior = inicio;
+    let atual = inicio.proximo;
+
+    while (atual !== null) {
+        if (atual.valor === tarefa) {
+            anterior.proximo = atual.proximo;
+            console.log(`Tarefa "${tarefa}" removida`);
+            return;
+        }
+        anterior = atual;
+        atual = atual.proximo;
+    }
+    console.log(`Tarefa "${tarefa}" não encontrada`);
+}
+function exibir() {
+    if (inicio === null) {
+        console.log("Lista vazia.");
+        return;
+    }
+    let atual = inicio;
+    let saida = "";
+
+    while (atual !== null) {
+        saida += atual.valor;
+        if (atual.proximo !== null) {
+            saida += "-> ";
+        }
+        atual = atual.proximo;
+    }
+    console.log(`Lista: ${saida} -> null\n`)
+}
+
+console.log("===== Adicionando tarefas =====")
+adicionar("Estudar 1")
+adicionar("Estudar 2")
+adicionar("Estudar 3")
+adicionar("Estudar 4")
+
+exibir()
+
+console.log("===== Removendo uma tarefa =====")
+remover("Estudar 3")
+exibir()
 /**
  * 
  */
