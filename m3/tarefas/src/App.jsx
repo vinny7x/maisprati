@@ -30,6 +30,9 @@ export default function App() {
     ]);
     setInput("");
   }
+  function handleComplete(id) {
+    setTasks(prev => prev.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
+  }
   return (
     <>
       <Saudacao nome='Vinny' />
@@ -38,9 +41,14 @@ export default function App() {
         <ul>
           {tasks.map((task) => {
             return (
-              <li key={task.id}>{task.id} {task.text} {task.completed} | {task.completed ? "✅ Concluída" : "❌ Pendente"} <button onClick={() => handleRemove(task.id)}>
-                Remover
-              </button></li>
+              <li key={task.id}>
+                <input type="checkbox" checked={task.completed} onChange={() => handleComplete(task.id)} />
+                {task.text}
+                {task.completed}
+                <button onClick={() => handleRemove(task.id)}>
+                  Remover
+                </button>
+              </li>
             );
           })}
         </ul>
