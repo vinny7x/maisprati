@@ -1,6 +1,6 @@
-import './Header.css'
+import './Header.css';
 
-function Header() {
+function Header({ theme, handleTheme }) {
     const today = new Date().toLocaleDateString('pt-BR', {
         weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
     });
@@ -11,6 +11,9 @@ function Header() {
                 <span>Edição de Nova York</span>
                 <span>{today}</span>
                 <span>U$ 1,50</span>
+                <button className='cabecalho__tema' onClick={handleTheme}>
+                    {theme === 'light' ? 'escuro' : 'claro'}
+                </button>
             </div>
             <h1 className="cabecalho__titulo">O CLARIM DIÁRIO</h1>
             <p className="cabecalho__lema">A verdade doa a quem doer - Inclusive a certos aracnídeos</p>
@@ -24,4 +27,4 @@ function Header() {
         </header>
     );
 }
-export default Header
+export default Header;
