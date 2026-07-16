@@ -10,6 +10,7 @@ function Home() {
         <main className='container'>
             <section className='manchete'>
                 <NewsCard
+                id={manchete.id}
                     categoria={manchete.categoria}
                     resumo={manchete.resumo}
                     titulo={manchete.titulo}
@@ -20,6 +21,7 @@ function Home() {
                 {demais.map(noticia => (
                     <NewsCard
                         key={noticia.id}
+                        id={noticia.id}
                         categoria={noticia.categoria}
                         resumo={noticia.resumo}
                         titulo={noticia.titulo}
