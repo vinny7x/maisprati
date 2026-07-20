@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import './App.css';
 import Materia from './pages/Materia/Materia';
+import Cadastro from './pages/Cadastro/Cadastro';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/materia/:id' element={<Materia />} />
+        <Route path='/cadastro' element={<Cadastro />} />
       </Routes>
     </>
   );

@@ -3,7 +3,7 @@
     --papel: #f7f4ec;
     --urgente: #b3001b;
     --cinza-legenda: #5d5a52;
-    --card: #fcfcfd;
+    --papel-card: #ffffff;
     --fonte-manchete: Georgia, 'Times New Roman', serif;
     --fonte-ui: Arial, Helvetica, sans-serif;
 }
@@ -13,5 +13,5 @@
     --papel: #191817;
     --urgente: #ff5468;
     --cinza-legenda: #a5a196;
-    --card: #2a2a2a;
+    --papel-card: #24221f;
 }
