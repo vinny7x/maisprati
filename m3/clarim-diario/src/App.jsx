@@ -5,6 +5,9 @@ import Home from './pages/Home/Home';
 import './App.css';
 import Materia from './pages/Materia/Materia';
 import Cadastro from './pages/Cadastro/Cadastro';
+import Login from './pages/Login/Login';
+import Painel from './pages/Painel/Painel';
+import RotaProtegida from './components/RotaProtegida';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -31,6 +34,12 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/materia/:id' element={<Materia />} />
         <Route path='/cadastro' element={<Cadastro />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/painel' element={
+          <RotaProtegida>
+            <Painel />
+          </RotaProtegida>
+        } />
       </Routes>
     </>
   );

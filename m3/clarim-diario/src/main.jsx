@@ -5,11 +5,15 @@ import App from './App.jsx';
 
 import './styles/global.css';
 import './styles/variables.css';
+import './styles/forms.css'
+import { AuthProvider } from './contexts/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <AuthProvider>
       <App />
+    </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 );

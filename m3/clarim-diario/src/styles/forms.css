@@ -74,3 +74,10 @@
 }
 
 /* clareia 10% no hover */
+
+.rodape-form{
+    text-align: center;
+    font-family: var(--fonte-ui);
+    font-size: 14px;
+    margin-top: 16px;
+}
