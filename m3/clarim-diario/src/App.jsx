@@ -8,6 +8,7 @@ import Cadastro from './pages/Cadastro/Cadastro';
 import Login from './pages/Login/Login';
 import Painel from './pages/Painel/Painel';
 import RotaProtegida from './components/RotaProtegida';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -41,6 +42,7 @@ function App() {
           </RotaProtegida>
         } />
       </Routes>
+      <Footer />
     </>
   );
 }
