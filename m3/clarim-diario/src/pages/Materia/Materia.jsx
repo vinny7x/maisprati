@@ -1,14 +1,37 @@
 import { useParams, Link } from 'react-router-dom';
-import { noticias } from '../../data/noticias';
+import { useState, useEffect } from 'react';
+import { buscarNoticia } from '../../services/noticias';
 import './Materia.css';
 function Materia() {
     const { id } = useParams();
-    const noticia = noticias.find(n => n.id === Number(id));
-    if (!noticia) {
+
+    const [noticia, setNoticia] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        async function fetchNoticia() {
+            try {
+                setLoading(true);
+                setError('');
+                const data = await buscarNoticia(id);
+                setNoticia(data);
+            } catch {
+                setError("Não foi possível carregar a matéria");
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchNoticia();
+    }, [id]);
+
+
+    if (loading) return <p className='aviso-tela'>Carregando a matéria...</p>;
+    if (error) {
         return (
-            <main className='container'>
-                <p>Matéria não encontrada - 404</p>
-                <Link to='/'>Voltar à capa</Link>
+            <main className='container materia'>
+                <p className='aviso-tela'>{error}</p>
             </main>
         );
     }
