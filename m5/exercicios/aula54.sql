@@ -22,8 +22,8 @@ select nome from usuario where stripe_customer_id is null
 -- 8. Listem os títulos das notícias das categorias 4 e 6.
 select titulo from noticia where categoria_id = 4 or categoria_id = 6
 
--- 9. Liste o id e o status das assinaturas que estão ativas
-select id, status from assinatura where status = 'ACTIVE'
+-- 9. Liste o id e o status das assinaturas que não estão ativas
+select id, status from assinatura where status <> 'ACTIVE'
 
 -- 10. Listem as cidades e as UFs dos endereços que ficam no RS ou em SC.
 select cidade, uf from endereco where uf = 'RS' or uf = 'SC'
