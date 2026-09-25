@@ -1,0 +1,65 @@
+==============================================================
+   EXERCICIO BIBLIOTECA - ENTRADA E SAIDA
+==============================================================
+
+[1] ENTRADA
+--------------------------------------------------------------
+O programa nao le dados do teclado: a entrada esta fixa em
+src/Main.java e e a seguinte:
+
+  Biblioteca(capacidadeAcervo = 10, capacidadeUsuarios = 10)
+
+  Itens cadastrados no acervo:
+    codigo 1 | LIVRO   | Dom Casmurro                     | disponivel
+    codigo 2 | LIVRO   | 1984                             | disponivel
+    codigo 3 | LIVRO   | O Cortico                        | disponivel
+    codigo 4 | REVISTA | Superinteressante - Edicao 450    | disponivel
+    codigo 5 | REVISTA | National Geographic               | disponivel
+
+  Usuarios cadastrados:
+    Aluno    | Maria | limite de 3 itens emprestados
+    Professor| Joao  | limite de 5 itens emprestados
+
+  Operacoes executadas, em ordem:
+    1. emprestar(Maria, Dom Casmurro)          -> deve ser aceito
+    2. emprestar(Maria, 1984)                  -> 2o item da aluna
+    3. emprestar(Maria, O Cortico)             -> 3o item, atinge o limite
+    4. emprestar(Maria, National Geographic)   -> deve ser RECUSADO (limite)
+    5. emprestar(Joao, Superinteressante 450)  -> aceito, professor tem folga
+    6. devolver(Maria, Dom Casmurro, 3 dias)   -> devolucao com atraso
+    7. listarAcervo()                          -> estado final
+
+[2] SAIDA
+--------------------------------------------------------------
+--- Tentativa 1: aluno pega um livro ---
+Maria pegou emprestado: "Dom Casmurro"
+Resultado: Empréstimo realizado
+Maria pegou emprestado: "1984"
+Maria pegou emprestado: "O Cortiço"
+
+--- Tentativa 2: aluno tenta pegar um 4º item (deve ser recusado) ---
+Maria atingiu o limite de itens emprestados.
+Resultado: Empréstimo recusado - limite atingido
+
+--- Tentativa 3: professor pega uma revista ---
+João pegou emprestado: "Superinteressante - Edição 450"
+Resultado: Empréstimo realizado
+
+--- Devolução do livro1, com 3 dias de atraso ---
+Maria devolveu: "Dom Casmurro"
+Multa por atraso (3 dia(s)): R$ 1,50
+
+--- Estado final do acervo ---
+[1] Dom Casmurro - Disponível - (Prazo: 14 dias)
+[2] 1984 - Emprestado - (Prazo: 14 dias)
+[3] O Cortiço - Emprestado - (Prazo: 14 dias)
+[4] Superinteressante - Edição 450 - Emprestado - (Prazo: 7 dias)
+[5] National Geographic - Disponível - (Prazo: 7 dias)
+
+[3] VERIFICACAO
+--------------------------------------------------------------
+  [OK] Aluno barrado no 4o item          -> limite de 3 respeitado
+  [OK] Professor aceito no mesmo item    -> limite de 5 respeitado
+  [OK] Multa do livro atrasado           -> 3 dias x R$ 0,50 = R$ 1,50
+  [OK] Devolucao libera o item no acervo -> "Dom Casmurro" voltou a Disponível
+  [OK] Prazos por tipo de item           -> livro 14 dias, revista 7 dias
