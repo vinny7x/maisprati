@@ -7,6 +7,5 @@ import java.util.Optional;
 
 public interface PlanoRepository extends JpaRepository<Plano, Long> {
     Optional<Plano> findByAtivoTrue();
-    Optional<Plano> findByStripeId(String stripeId);
-
+    Optional<Plano> findByStripePriceId(String stripePriceId);
 }
