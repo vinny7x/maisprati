@@ -10,10 +10,10 @@ function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    function enviar(e) {
+    async function enviar(e) {
         e.preventDefault();
         try {
-            login(email, senha);
+            await login(email, senha);
             navigate('/');
         } catch (e) {
             setAviso(e.message);

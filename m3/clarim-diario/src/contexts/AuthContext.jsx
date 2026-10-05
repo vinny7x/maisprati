@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-
+import { login as loginService } from '../services/auth.js';
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
@@ -7,22 +7,18 @@ export function AuthProvider({ children }) {
         const salvo = localStorage.getItem('usuario');
         return salvo ? JSON.parse(salvo) : null;
     });
-    function login(email, senha) {
-        if (email === "teste@teste.com" && senha === "senhaSuperSegura123") {
-            const dados = {
-                nome: 'J. Jonah Jameson',
-                email
-            };
-            setUsuario(dados);
-            localStorage.setItem('usuario', JSON.stringify(dados));
-            return;
-        }
-        throw new Error('E-mail ou senha incorretos.');
+    async function login(email, senha) {
+        const dados = await loginService(email, senha);
+        
+        localStorage.setItem('token', dados.token);
+        localStorage.setItem('usuario', JSON.stringify({nome: dados.nome, papel: dados.papel}));
+        setUsuario(dados);
     }
 
     function logout() {
         setUsuario(null);
         localStorage.removeItem('usuario');
+        localStorage.removeItem('token');
     }
     return (
         <AuthContext.Provider value={{ usuario, login, logout }}>
