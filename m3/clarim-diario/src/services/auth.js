@@ -1,8 +1,8 @@
-import api  from "./api";
+import api from "./api";
 
 export async function login(email, senha) {
-    const {data} = await api.post('/api/auth/login', {email, senha});
-    return data
+    const { data } = await api.post('/api/auth/login', { email, senha });
+    return data;
 }
 
 // function logout() {
@@ -14,6 +14,11 @@ export async function login(email, senha) {
 // export {logout}
 
 export async function cadastrar(nome, email, senha) {
-    const {data} = await api.post('/api/usuarios', {nome, email, senha});
-    return data
+    const { data } = await api.post('/api/usuarios', { nome, email, senha });
+    return data;
+}
+
+export async function loginGoogle(credential) {
+    const { data } = await api.post('/api/auth/google', { credential });
+    return data;
 }

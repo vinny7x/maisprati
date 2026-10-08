@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { login as loginService } from '../services/auth.js';
+import { login as loginService, loginGoogle } from '../services/auth.js';
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
@@ -9,10 +9,23 @@ export function AuthProvider({ children }) {
     });
     async function login(email, senha) {
         const dados = await loginService(email, senha);
-        
+
         localStorage.setItem('token', dados.token);
-        localStorage.setItem('usuario', JSON.stringify({nome: dados.nome, papel: dados.papel}));
+        localStorage.setItem('usuario', JSON.stringify({ nome: dados.nome, papel: dados.papel }));
         setUsuario(dados);
+    }
+
+    function iniciarSessao(dados) {
+        localStorage.setItem('token', dados.token);
+        const resumo = { nome: dados.nome, papel: dados.papel };
+        localStorage.setItem('usuario', JSON.stringify(resumo));
+        setUsuario(resumo);
+    }
+
+    async function loginComGoogle(credencial) {
+        const dados = await loginGoogle(credencial);
+
+        iniciarSessao(dados);
     }
 
     function logout() {
@@ -21,7 +34,7 @@ export function AuthProvider({ children }) {
         localStorage.removeItem('token');
     }
     return (
-        <AuthContext.Provider value={{ usuario, login, logout }}>
+        <AuthContext.Provider value={{ usuario, login, logout, loginComGoogle }}>
             {children}
         </AuthContext.Provider>
     );
