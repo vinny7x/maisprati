@@ -29,12 +29,12 @@ function Header({ theme, handleTheme }) {
             <h1 className="cabecalho__titulo">O CLARIM DIÁRIO</h1>
             <p className="cabecalho__lema">A verdade doa a quem doer - Inclusive a certos aracnídeos</p>
             <nav className="cabecalho__menu">
-                <a href="#">Cidade</a>
-                <a href="#">Ameaças Urbanas</a>
-                <a href="#">Opnião do Editor</a>
-                <a href="#">Esportes</a>
-                <a href="#">Classificados</a>
-            </nav>
+        <Link to="/">Capa</Link>
+        <a href="#">Cidade</a>
+        <a href="#">Ameaças Urbanas</a>
+        <a href="#">Opinião do Editor</a>
+        <Link to="/assinar">Assine</Link>
+      </nav>
         </header>
     );
 }

@@ -9,7 +9,9 @@ import Login from './pages/Login/Login';
 import Painel from './pages/Painel/Painel';
 import RotaProtegida from './components/RotaProtegida';
 import Footer from './components/Footer/Footer';
-
+import Assinar from './pages/Assinar/Assinar';
+import AssinaturaSucesso from './pages/Assinar/AssinaturaSucesso';
+import AssinaturaCancelada from './pages/Assinar/AssinaturaCancelada';
 function App() {
   const [theme, setTheme] = useState(() => {
     const salvo = localStorage.getItem('theme');
@@ -41,6 +43,9 @@ function App() {
             <Painel />
           </RotaProtegida>
         } />
+        <Route path="/assinar" element={<RotaProtegida><Assinar /></RotaProtegida>} />
+        <Route path="/assinatura/sucesso" element={<AssinaturaSucesso />} />
+        <Route path="/assinatura/cancelada" element={<AssinaturaCancelada />} />
       </Routes>
       <Footer />
     </>
