@@ -1,9 +1,6 @@
-import axios from 'axios';
 //const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:8080',
-});
+import api from './api';
 export async function listarNoticias() {
     //await esperar(1000);
     const { data } = await api.get('api/noticias');
